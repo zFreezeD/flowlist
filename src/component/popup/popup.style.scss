@@ -1,0 +1,33 @@
+.popup {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+    width: 100vw;
+
+    .popup-link-container {
+        display: flex;
+        position: relative;
+        height: 100px;
+        width: 300px;
+        justify-content: center;
+        align-items: center;
+        top: 50px;
+        background-color: var(--secondary-color);
+        border-radius: var(--primary-radius);
+
+        input {
+            background-color: white;
+            width: 60%;
+            font-size: 0.5em;
+            padding: 5px;
+            height: 30%;
+            color: black;
+            /* top-left | top-right | bottom-right | bottom-left */
+            border-radius: var(--primary-radius) 0 0px var(--primary-radius);
+        }
+    }
+}

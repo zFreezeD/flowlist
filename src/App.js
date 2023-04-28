@@ -3,11 +3,6 @@ import ShoppingListContainer from './component/shopping-list-container/shopping-
 import Home from './component/home/home.component';
 import './App.scss';
 
-
-
-
-
-
 function App() {
   return (
 
