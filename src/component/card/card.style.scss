@@ -1,0 +1,51 @@
+.card-icon {
+    height: 50px;
+}
+
+.shopping-list-card {
+    display: flex;
+    position: relative;
+    background-color: var(--secondary-color);
+    border-radius: var(--primary-radius);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    .card-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        width: 30%;
+    }
+
+    .card-right {
+
+        h3{
+            margin: 0;
+        }
+
+        p{
+            margin: 0;
+        }
+        width: 70%;
+      }
+}
+
+.card-remove{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    font-size: 15px;
+    box-sizing:unset;
+    position: absolute;
+    left:4px;
+    top: 4px;
+    border-radius: 100%;
+    background-color: var(--action-color);
+}
+
+input {
+    all: unset;
+    width: 40px;
+  }
