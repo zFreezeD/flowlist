@@ -1,6 +1,5 @@
 import './popup.style.scss';
 import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 
 const Popup = (props) => {
 
@@ -16,9 +15,9 @@ const Popup = (props) => {
         <div className='popup'>
             <div className='popup-link-container'>
                 <input value={value} onChange={(event) => onChange(event.target.value)} type='search' placeholder="https://website.com/receipt/" />
-                <Button onClick={onClickAddHandler} variant="primary">Add</Button>{' '}
+                <button onClick={onClickAddHandler} variant="primary">Add</button>{' '}
             </div>
-            <Button onClick={onClose} variant="secondary">Close</Button>{' '}
+            <button onClick={onClose} variant="secondary">Close</button>{' '}
         </div>
     )
 }

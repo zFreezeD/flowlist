@@ -5,8 +5,8 @@ import './home.style.scss';
 import Popup from "../popup/popup.component";
 import axios from 'axios';
 import { firebaseGetRecipe, firebaseSaveRecipe } from "../../utils/firebase/firebase.utils";
-
-
+import { useContext } from "react";
+import { RecipeContext } from "../../App";
 
 const Home = () => {
 
@@ -16,7 +16,7 @@ const Home = () => {
 
     const [showPopup, setShowPopup] = useState(false);
     const [newReceptLink, setNewReceptLink] = useState('');
-
+    const { setSelectedRecipe } = useContext(RecipeContext);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -71,7 +71,8 @@ const Home = () => {
     };
 
     const onClickMenuCardHandler = async (receptInfo) => {
-        await htmlExtract(receptInfo.informations.receptLink);
+        console.log("recept " , receptInfo);
+        setSelectedRecipe(receptInfo);
     }
 
     const htmlExtract = async (link) => {
@@ -144,7 +145,7 @@ const Home = () => {
                     <h2>My Shoppinglist</h2>
                 </Link>
                 {receptList ? receptList.map((receptInfo) => (
-                    <MenuCard to="list" key={receptInfo.id} recept={receptInfo} click={onClickMenuCardHandler} />
+                    <MenuCard key={receptInfo.id} recept={receptInfo} click={onClickMenuCardHandler} />
                 )) : null}
 
 

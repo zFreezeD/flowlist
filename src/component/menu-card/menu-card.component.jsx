@@ -1,19 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { RecipeContext } from '../../App';
 import './menu-card.style.scss';
 
 const MenuCard = ({ recept, click }) => {
-    console.log(recept);
     const { receptName, receptLink, receptImage } = recept.informations;
     const onClickMenuCardHandler = click;
+    const { setSelectedRecipe } = useContext(RecipeContext);
     const onClickHandler = () => {
         if (onClickMenuCardHandler !== '') {
+            setSelectedRecipe(recept);
             onClickMenuCardHandler(recept);
         }
     }
 
     return (
         <Link
-            to={`/recipes`}
+            to={`/recipe`}
+            recept={receptName}
             className="menu-card-small recept"
             style={{ backgroundImage: `url(${receptImage})` }}
             onClick={onClickHandler}

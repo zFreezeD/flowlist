@@ -1,5 +1,6 @@
 import Card from "../card/card.component";
 import { useState } from "react";
+import './shopping-list.style.scss';
 
 const ShoppingListContainer = () => {
     const cardArray = [
@@ -36,6 +37,7 @@ const ShoppingListContainer = () => {
                 <Card key={card.id} array={card} onDelete={() => handleDeleteCard(index)} />
             ))}
         </div>
+
     );
 };
 

@@ -2,6 +2,7 @@
   --primary-color: #313642;
   --secondary-color: #3e4553;
   --action-color: #fe7461;
+  --action-color-hover: #f5543f;
   --primary-radius: 20px;
 }
 
@@ -27,3 +28,22 @@ a {
   color: rgb(154, 154, 192);
   text-decoration: none; /* no underline */
 }
+
+.btn-primary {
+  all: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: var(--primary-radius);
+  background-color: var(--action-color);
+  cursor: pointer;
+  &:hover{
+    background-color: var(--action-color-hover) !important;
+  }
+  .active {
+  }
+  .visited {
+  }
+}
+
