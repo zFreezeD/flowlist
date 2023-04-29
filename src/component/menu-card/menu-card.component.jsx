@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './menu-card.style.scss';
 
 const MenuCard = ({ recept, click }) => {
@@ -11,14 +12,14 @@ const MenuCard = ({ recept, click }) => {
     }
 
     return (
-        <div
-            style={{
-                backgroundImage: `url(${receptImage})`
-            }}
+        <Link
+            to={`/recipes`}
+            className="menu-card-small recept"
+            style={{ backgroundImage: `url(${receptImage})` }}
             onClick={onClickHandler}
-            className="menu-card-small recept">
+        >
             <h2>{receptName}</h2>
-        </div>
+        </Link>
     )
 }
 
