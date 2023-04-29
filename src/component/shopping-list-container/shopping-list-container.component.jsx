@@ -26,15 +26,14 @@ const ShoppingListContainer = () => {
 
     const [cards, setCards] = useState(cardArray);
 
-    const handleDeleteCard = (index) => {
-        const updatedCards = cards.filter((_, i) => i !== index);
-        setCards(updatedCards);
+    const addToArray = (array, shouldAdd) => {
+        //setCards(updatedCards);
     };
 
     return (
         <div className="shopping-list-container">
             {cards.map((card, index) => (
-                <Card key={card.id} array={card} onDelete={() => handleDeleteCard(index)} />
+                <Card key={card.id} array={card} onAddArray={() => addToArray()} />
             ))}
         </div>
 
