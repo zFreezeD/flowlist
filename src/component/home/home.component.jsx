@@ -1,76 +1,32 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import MenuCard from "../menu-card/menu-card.component";
 import './home.style.scss';
 import Popup from "../popup/popup.component";
 import axios from 'axios';
-import { Configuration, OpenAIApi } from "openai";
+import { firebaseGetRecipe, firebaseSaveRecipe } from "../../utils/firebase/firebase.utils";
 
 
 
 const Home = () => {
 
     const [receptList, setReceptList] = useState([
-        {
-            id: "0",
-            informations: {
-                receptName: "Miracoli",
-                receptLink: "https://www.chefkoch.de/rezepte/446511136906689/Tomatensauce-a-la-Miracoli.html",
-                receptImage: "https://img.chefkoch-cdn.de/rezepte/446511136906689/bilder/697035/crop-642x428/tomatensauce-a-la-miracoli.jpg"
-            },
-            ingredients: {
-                0: {
-                    ingredientName: "Bread",
-                    value: "100g",
-                },
-                1: {
-                    ingredientName: "Banana",
-                    value: "1Stk.",
-                }
-            }
-        },
-        {
-            id: "1",
-            informations: {
-                receptName: "Test2",
-                receptLink: "https://www.chefkoch.de/rezepte/1109971217065453/Shakshuka.html",
-                receptImage: "https://img.chefkoch-cdn.de/rezepte/1109971217065453/bilder/1085864/crop-642x428/shakshuka.jpg"
-            },
-            ingredients: {
-                0: {
-                    ingredientName: "Test2",
-                    value: "200g",
-                },
-                1: {
-                    ingredientName: "Test2",
-                    value: "2Stk.",
-                }
-            }
-        },
-        {
-            id: "2",
-            informations: {
-                receptName: "Test3",
-                receptLink: "https://www.einfachbacken.de/rezepte/pfannkuchen-das-schnelle-grundrezept",
-                receptImage: "https://www.einfachbacken.de/sites/einfachbacken.de/files/styles/700_530/public/2019-01/pfannkuchen.jpg?h=a1e1a043&itok=c-NaRLDC"
-            },
-            ingredients: {
-                0: {
-                    ingredientName: "Test2",
-                    value: "200g",
-                },
-                1: {
-                    ingredientName: "Test2",
-                    value: "2Stk.",
-                }
-            }
-        }
     ]);
 
 
     const [showPopup, setShowPopup] = useState(false);
     const [newReceptLink, setNewReceptLink] = useState('');
 
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const recipes = await firebaseGetRecipe();
+            setReceptList(recipes);
+            console.log("update");
+        };
+
+        fetchData();
+    }, []);
 
     function handleCardClick() {
         if (showPopup === false)
@@ -108,6 +64,9 @@ const Home = () => {
 
         setReceptList([...receptList, newRecept]);
         setNewReceptLink('');
+        const uploadArray = receptList;
+        uploadArray.push(newRecept);
+        await firebaseSaveRecipe(uploadArray);
         setShowPopup(false);
     };
 
@@ -184,9 +143,9 @@ const Home = () => {
                 <Link to="list" className="menu-card-big classic-card">
                     <h2>My Shoppinglist</h2>
                 </Link>
-                {receptList.map((receptInfo) => (
+                {receptList ? receptList.map((receptInfo) => (
                     <MenuCard to="list" key={receptInfo.id} recept={receptInfo} click={onClickMenuCardHandler} />
-                ))}
+                )) : null}
 
 
             </div>
