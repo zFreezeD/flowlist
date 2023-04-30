@@ -6,3 +6,21 @@
     align-items: center;
 }
 
+.shopping-list-addingredient{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--action-color);
+    height: 50px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: var(--primary-radius);
+
+    &:hover{
+        background-color: var(--action-color-hover);
+    }
+}

@@ -7,7 +7,7 @@ import axios from 'axios';
 import { firebaseGetRecipe, firebaseSaveRecipe } from "../../utils/firebase/firebase.utils";
 import { useContext } from "react";
 import { RecipeContext } from "../../App";
-
+import { v4 as uuidv4 } from 'uuid';
 const Home = () => {
 
     const [receptList, setReceptList] = useState([
@@ -49,7 +49,7 @@ const Home = () => {
         console.log(ingredients);
 
         const newRecept = {
-            id: `${receptList.length}`,
+            id: uuidv4(),
             informations: {
                 receptName: h1,
                 receptLink: newReceptLink,
@@ -58,7 +58,7 @@ const Home = () => {
             ingredients: ingredients.map((ingredient, index) => ({
                 ingredientName: ingredient.name,
                 value: ingredient.amount,
-                id: index.toString()
+                id: uuidv4()
             }))
         };
 
@@ -71,7 +71,7 @@ const Home = () => {
     };
 
     const onClickMenuCardHandler = async (receptInfo) => {
-        console.log("recept " , receptInfo);
+        console.log("recept ", receptInfo);
         setSelectedRecipe(receptInfo);
     }
 

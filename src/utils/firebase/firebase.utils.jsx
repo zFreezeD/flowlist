@@ -39,3 +39,36 @@ export const firebaseSaveRecipe = async (recipeData) => {
         console.log(error);
     }
 }
+
+export const firebaseGetShoppingList = async () => {
+    const recipeCollectionRef = collection(db, 'shopping-list');
+    const recipeSnapshot = await getDocs(recipeCollectionRef, 'janshoppinglist');
+    var recipe = recipeSnapshot.docs.map((doc) => doc.data());
+    if (recipe.length === 0) {
+        const ingredient = []
+        return ingredient;
+    }
+    recipe = recipe[0].listArray;
+    return recipe;
+}
+
+export const firebaseSaveShoppingList = async (array, needFirebaseArray) => {
+    var firebaseArray = [];
+    if (needFirebaseArray === true)
+        firebaseArray = await firebaseGetShoppingList();
+    var listArray = [];
+    if (firebaseArray.length === 0) {
+        listArray = array;
+    }
+    else {
+        listArray = [...array, ...firebaseArray];
+    }
+
+    try {
+        const recipeDocRef = doc(db, 'shopping-list', 'janshoppinglist');
+        await setDoc(recipeDocRef, { listArray });
+    } catch (error) {
+        console.log(error);
+        alert(error);
+    }
+}

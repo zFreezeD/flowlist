@@ -1,4 +1,4 @@
-.recept-footer-selector{
+.recept-footer-selector {
     width: 100vw;
     display: flex;
     position: fixed;
@@ -7,6 +7,28 @@
     justify-content: center;
 }
 
-.btn-max-width{
+.btn-max-width {
     width: 90%;
+}
+
+.shopping-list-receptlink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: var(--primary-radius);
+    background-color: var(--secondary-color);
+    height: 50px;
+    margin-bottom: 10px;
+    p {
+        color: var(--action-color);
+        font-weight: bold;
+    }
+
+    &:hover {
+        background-color: var(--action-color-hover);
+        p {
+            color: white;
+        }
+    }
 }
