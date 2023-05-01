@@ -203,6 +203,9 @@ const Home = () => {
 
 
             </div>
+            <div style={{ paddingBottom: '130px' }}>
+
+            </div>
             <div className="home-bar-container">
                 <button onClick={deleteReady ? acceptDelete : handleCardClick} className=" btn-primary home-addbar">
                     {deleteReady ? `Delete ${deleteArray.length} Recipes` : "Add new recipe"}

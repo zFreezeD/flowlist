@@ -54,7 +54,7 @@ const RecipePage = () => {
                     )
                 })}
             </div>
-            <div style={{ paddingBottom: '50px' }}>
+            <div style={{ paddingBottom: '130px' }}>
             </div>
             <div className='recept-footer-selector'>
                 <button className="btn-primary btn-max-width" onClick={onClickHandler}>

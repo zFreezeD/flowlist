@@ -16,7 +16,6 @@ function App() {
     <div className="App">
       <div>
         <Link to="/">Home</Link>
-        <Link to="list">To List</Link>
       </div>
       <RecipeContext.Provider value={{ selectedRecipe, setSelectedRecipe }}>
         <Routes>
