@@ -1,9 +1,54 @@
+.home-main {
+    min-height: 100vh;
+}
 .menu-card-container {
     display: flex;
     flex-flow: wrap;
 }
 
-.classic-card{
+.classic-card {
     background-color: var(--secondary-color);
     cursor: pointer;
+}
+
+.home-addbar {
+    width: 70%;
+    height: 100%;
+    border-radius: 0;
+    padding: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.home-deletebar {
+    width: 30%;
+    height: 100%;
+    padding: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.home-bar-container {
+    position: fixed;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 9999; /* set a higher z-index value */
+    width: 80%; /* set the width to 100% */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    border-radius: var(--primary-radius);
+    background-color: var(--action-color);
+    cursor: pointer;
+    &:hover {
+        background-color: var(--action-color-hover) !important;
+    }
+    .active {
+    }
+    .visited {
+    }
 }

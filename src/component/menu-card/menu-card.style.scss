@@ -15,6 +15,7 @@
 }
 
 .menu-card-small {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,4 +24,19 @@
     margin: 12px 0px 12px 0px;
     border-radius: var(--primary-radius);
     background-size: cover;
+}
+
+.delete-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: red;
+    border-radius: var(--primary-radius);
+    height: 20px;
+    width: 20px;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
 }

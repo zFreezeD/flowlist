@@ -13,11 +13,18 @@ const Popup = (props) => {
 
     return (
         <div className='popup'>
-            <div className='popup-link-container'>
-                <input value={value} onChange={(event) => onChange(event.target.value)} type='search' placeholder="https://website.com/receipt/" />
-                <button onClick={onClickAddHandler} variant="primary">Add</button>{' '}
+            <div className='popup-main-container'>
+                <div className='popup-link-container'>
+                    <input value={value} onChange={(event) => onChange(event.target.value)} type='search' placeholder="https://website.com/receipt/" />
+                    <button onClick={onClickAddHandler} className='btn-primary'>Add</button>{' '}
+                </div>
+                <div className='popup-close-container'>
+                    <button onClick={onClose} className='btn-primary'>Close</button>{' '}
+                </div>
+
             </div>
-            <button onClick={onClose} variant="secondary">Close</button>{' '}
+
+
         </div>
     )
 }

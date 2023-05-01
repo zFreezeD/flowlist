@@ -50,7 +50,6 @@
         background-color: var(--action-color);
         opacity: 0.3;
     }
-
 }
 
 .ingredient-list-card {
@@ -64,10 +63,9 @@
         background-color: var(--action-color);
         opacity: 0.3;
     }
-
 }
 
-.card-input-container{
+.card-input-container {
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -84,7 +82,7 @@
     width: 80%;
 }
 
-.card-input-btn{
+.card-input-btn {
     width: 20%;
     height: 5px;
 }
@@ -113,3 +111,5 @@ textarea {
 .input-select-ingredient:checked + .shopping-list-card {
     background-color: #a0ffa0; /* Hintergrundfarbe von .shopping-list-card, wenn input-select-ingredient ausgewählt ist */
 }
+
+
